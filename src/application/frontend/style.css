@@ -1,0 +1,216 @@
+body {
+    margin: 0px;    
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+input,
+button {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.navigation-menu {
+    margin: 0px;
+    padding: 0px;
+    width: 45px;
+    height: 100vh;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background-color: #343b55;
+    overflow: hidden;
+    transition: width 0.25s ease-in-out;
+}
+
+.navigation-menu.expanded {
+    width: 250px;
+}
+
+.navigation-menu-container {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    background-color: transparent;
+    transition: background-color 0.18s ease-in-out;
+}
+
+.menu-container:hover,
+.navigation-menu.expanded .menu-container {
+    background-color: #2a3046;
+}
+
+.dashboard-container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modules-container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex: 2;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.settings-container {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    align-items: flex-start;
+    justify-content: space-evenly;  
+}
+
+.button-img {
+    width: 30px;
+    flex-shrink: 0;
+    margin-left: 7.5px;
+}
+
+.button-img-2 {
+    width: 35px;
+    flex-shrink: 0;
+    margin-left: 5px;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.dashboard-button {
+    display: flex;
+    height: 90px;
+    border-radius: 20px;
+    border: none;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.module-button {
+    display: flex;
+    height: 70px;
+    border-radius: 20px;
+    border: none;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.dashboard-button,
+.module-button {
+    width: calc(100% - 8px);
+    margin-left: 4px;
+    margin-right: 4px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    background-color: #313751;
+    box-shadow: 0 0 3px 0.5px rgba(0, 0, 0, 0.7);
+
+    transition:
+        height 0.2s ease-out,
+        background-color 0.12s ease-out,
+        box-shadow 0.12s ease-out,
+        transform 0.12s ease-out;
+}
+
+.dashboard-button .button-img,
+.module-button .button-img {
+    margin-left: 3.5px;
+}
+
+/* Hovered */
+.dashboard-button:hover,
+.module-button:hover {
+    background-color: #3c435f;
+    box-shadow: 0 0 5px 0.5px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-button.pinned,
+.module-button.pinned,
+.dashboard-button.pinned:hover,
+.module-button.pinned:hover {
+    background-color: #2c324a;
+
+    box-shadow:
+        inset 1px 2px 3px rgba(0, 0, 0, 0.4),
+        inset -1px -1px 2px rgba(255, 255, 255, 0.05);
+
+    transform: translateY(1px);
+}
+
+.dashboard-button.expanded {
+    height: 200px;
+}
+
+.module-button.expanded {
+    height: 150px;
+}
+
+.settings-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.website-body {
+    flex: 1;
+    min-width: 0;
+    overflow-y: auto;
+    background-color: #eaeef3;
+    position: relative;
+}
+
+.body-header {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 55px;
+    background-color: white;
+}
