@@ -1,12 +1,31 @@
+# Local environment / configuration overrides
+application-local.properties
+application-local.yml
 .env
+
+# Gradle
+.gradle/
+build/
+bin/
 
 # Ignore compiled Java files
 bin/
 *.class
 
-# Ignore Eclipse-specific local configuration files
-.classpath
-.project
-.metadata/
-.settings/
+# Log files
 *.log
+
+# IDEs (IntelliJ IDEA, Eclipse, VS Code)
+.idea/
+*.iml
+*.ipr
+*.iws
+.settings/
+.project
+.classpath
+.sts4-cache/
+.vscode/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
