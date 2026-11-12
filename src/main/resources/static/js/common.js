@@ -83,3 +83,68 @@ expandableButtons.forEach((button) => {
 
 // Apply default pinned state on page load
 updateButtons();
+
+
+const websiteBody = document.querySelector(".website-body");
+
+async function loadPage(page) {
+    try {
+        // Load HTML
+        const response = await fetch(`pages/${page}/${page}.html`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const html = await response.text();
+        websiteBody.innerHTML = html;
+
+        // Load CSS
+        let pageCSS = document.getElementById("page-css");
+
+        if (!pageCSS) {
+            pageCSS = document.createElement("link");
+            pageCSS.id = "page-css";
+            pageCSS.rel = "stylesheet";
+            document.head.appendChild(pageCSS);
+        }
+
+        pageCSS.href = `pages/${page}/${page}.css`;
+
+        // Remove previous page's JavaScript
+        const oldScript = document.getElementById("page-script");
+
+        if (oldScript) {
+            oldScript.remove();
+        }
+
+        // Load new page's JavaScript
+        const pageScript = document.createElement("script");
+        pageScript.id = "page-script";
+        pageScript.src = `pages/${page}/${page}.js`;
+
+        document.body.appendChild(pageScript);
+
+        console.log(`Successfully loaded: ${page}`);
+
+    } catch (error) {
+        console.error(`Failed to load ${page}:`, error);
+
+        websiteBody.innerHTML = `
+            <h1>Failed to load ${page}</h1>
+            <p>${error.message}</p>
+        `;
+    }
+}
+
+document.querySelector(".dashboard-button").addEventListener("click", () => {
+    loadPage("dashboard");
+});
+
+document.querySelectorAll(".module-button").forEach((button, index) => {
+    button.addEventListener("click", () => {
+        loadPage(`mem${index + 1}`);
+    });
+});
+
+loadPage("dashboard"); 
