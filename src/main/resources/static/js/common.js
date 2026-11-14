@@ -90,7 +90,7 @@ const websiteBody = document.querySelector(".website-body");
 async function loadPage(page) {
     try {
         // Load HTML
-        const response = await fetch(`pages/${page}/${page}.html`);
+        const response = await fetch(`pages/${page}.html`);
 
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
@@ -109,7 +109,7 @@ async function loadPage(page) {
             document.head.appendChild(pageCSS);
         }
 
-        pageCSS.href = `pages/${page}/${page}.css`;
+        pageCSS.href = `css/${page}.css`;
 
         // Remove previous page's JavaScript
         const oldScript = document.getElementById("page-script");
@@ -121,7 +121,7 @@ async function loadPage(page) {
         // Load new page's JavaScript
         const pageScript = document.createElement("script");
         pageScript.id = "page-script";
-        pageScript.src = `pages/${page}/${page}.js`;
+        pageScript.src = `js/${page}.js`;
 
         document.body.appendChild(pageScript);
 
