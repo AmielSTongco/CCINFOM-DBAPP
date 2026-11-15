@@ -1,0 +1,21 @@
+.body-header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+    margin: 0px;
+    background-color: white;
+}
+
+.mem1-logo {
+    width: 45px;
+    margin-right: 20px;
+}
+
+.mem1-title {
+    font-family: Verdana, serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #2a3046;
+}
